@@ -1,4 +1,5 @@
 import { useTonConnectUI } from "@tonconnect/ui-react";
+
 import { Sender, SenderArguments } from 'ton-core';
 
 export function useTonConnect(): { sender: Sender; connected: boolean } {
@@ -10,7 +11,9 @@ export function useTonConnect(): { sender: Sender; connected: boolean } {
                 tonConnectUI.sendTransaction({
                     messages: [
                         {
+
                             address: args.toString(),
+                            
                             amount: args.value.toString(),
                             payload: args.body?.toBoc().toString('base64'),
                         }
